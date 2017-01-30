@@ -16,7 +16,9 @@ class SCSSLintBear:
     """
 
     LANGUAGES = {'SCSS'}
-    REQUIREMENTS = {GemRequirement('scss-lint', '', 'false'),
+    # require flag is necessary for 'scss_lint'
+    # https://github.com/brigade/scss-lint#installation
+    REQUIREMENTS = {GemRequirement('scss_lint', '', 'false'),
                     PipRequirement('pyyaml', '3.12')}
     AUTHORS = {'The coala developers'}
     AUTHORS_EMAILS = {'coala-devel@googlegroups.com'}
@@ -270,7 +272,7 @@ class SCSSLintBear:
                                    'enabled': True,
                                    'style': (
                                        'exclude_zero' if exclude_leading_zero
-                                        else 'include_zero')
+                                       else 'include_zero')
                                   },
                    'MergeableSelector': {'enabled': allow_mergeable_selectors,
                                          'force_nesting': True},
